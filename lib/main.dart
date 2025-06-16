@@ -13,20 +13,13 @@ Future<void> main() async {
   final results = await Future.wait([
         () async {
       if (kIsWeb) {
-        return await HydratedStorage.build(
-          storageDirectory: HydratedStorageDirectory.web,
-        );
+        return await HydratedStorage.build(storageDirectory: HydratedStorageDirectory.web,);
       } else {
         final dir = await getTemporaryDirectory();
-        return await HydratedStorage.build(
-          storageDirectory: HydratedStorageDirectory((dir).path),
-        );
+        return await HydratedStorage.build(storageDirectory: HydratedStorageDirectory((dir).path),);
       }
     }(),
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]),
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown,]),
   ]);
   HydratedBloc.storage = results[0] as HydratedStorage;
   runApp(const MyApp());
