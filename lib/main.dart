@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'Bloc/chat_bot_bloc.dart';
-import 'Views/Screens/gemini_page.dart';
+import 'Views/Screens/Splash/Splash_screen.dart';
 import 'package:path_provider/path_provider.dart';
 
 
@@ -28,18 +28,20 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     final String apiKey = "AIzaSyCMR2i47-GUdT3NF6nJBsEbfdNKBQKt9SM";
-    return MaterialApp(
-      title: 'Gemini Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: BlocProvider(
-        create: (_) => GeminiBloc(apiKey: apiKey),
-        child: GeminiPage(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_)=> GeminiBloc(apiKey: apiKey)),
+      ],
+      child: const MaterialApp(
+        title: 'TalkWise',
+        home: SplashScreen(),
       ),
     );
   }
 }
+
+
 
