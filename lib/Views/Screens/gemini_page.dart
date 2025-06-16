@@ -38,7 +38,6 @@ class _GeminiPageState extends State<GeminiPage> {
   void _replaceThinkingMessage({String? text, String? imageBase64}) {
     if (_isThinking) {
       setState(() {
-        // Remove last temporary message
         _chatHistory.removeWhere((c) => c.isTemporary);
         _chatHistory.add(
           _ChatBubble(
@@ -75,7 +74,7 @@ class _GeminiPageState extends State<GeminiPage> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 2,
-        title: const Text('Gemini ChatBot', style: TextStyle(color: Colors.white)),
+        title: const Text('TalkWise', style: TextStyle(color: Colors.white)),
         actions: [
           PopupMenuButton<String>(
             initialValue: _selectedMode,
