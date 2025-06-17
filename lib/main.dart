@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-
+    final String apiKey = "AIzaSyCMR2i47-GUdT3NF6nJBsEbfdNKBQKt9SM";
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_)=> GeminiBloc(apiKey: apiKey)),
