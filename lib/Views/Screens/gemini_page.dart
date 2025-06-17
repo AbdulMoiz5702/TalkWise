@@ -196,7 +196,19 @@ class _GeminiPageState extends State<GeminiPage> {
   }
 }
 
+class _ChatBubble {
+  final String text;
+  final String? imageBase64;
+  final bool isUser;
+  final bool isTemporary;
 
+  _ChatBubble({
+    this.text = '',
+    this.imageBase64,
+    required this.isUser,
+    this.isTemporary = false,
+  });
+}
 
 
 
